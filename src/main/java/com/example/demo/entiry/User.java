@@ -24,8 +24,6 @@ public class User {
 
 	private Integer gender;
 
-	private Integer weight;
-
 	//コンストラクタ
 	public User() {
 
@@ -57,7 +55,4 @@ public class User {
 		return gender;
 	}
 
-	public Integer getWeight() {
-		return weight;
-	}
 }

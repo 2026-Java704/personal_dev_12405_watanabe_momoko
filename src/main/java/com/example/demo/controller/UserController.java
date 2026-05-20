@@ -84,7 +84,7 @@ public class UserController {
 
 		account.setName(name);
 
-		return "records";
+		return "redirect:/records/add";
 	}
 
 }

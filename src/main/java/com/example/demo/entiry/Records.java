@@ -26,15 +26,24 @@ public class Records {
 
 	private Date date;
 
-	private Integer Time;
+	private Integer time;
 
 	@Column(name = "burn_calorie")
 	private Integer burnCalorie;
 
 	private String memo;
 
+	private Integer weight;
+
 	//コンストラクタ
 	public Records() {
+
+	}
+
+	public Records(Integer time, Integer weight, Date date) {
+		this.time = time;
+		this.weight = weight;
+		this.date = date;
 
 	}
 
@@ -56,7 +65,7 @@ public class Records {
 	}
 
 	public Integer getTime() {
-		return Time;
+		return time;
 	}
 
 	public Integer getBurnCalorie() {
@@ -68,25 +77,6 @@ public class Records {
 	}
 
 	//セッター
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
-
-	public void setEventId(Integer eventId) {
-		this.eventId = eventId;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	public void setTime(Integer time) {
-		Time = time;
-	}
 
 	public void setBurnCalorie(Integer burnCalorie) {
 		this.burnCalorie = burnCalorie;
@@ -94,5 +84,13 @@ public class Records {
 
 	public void setMemo(String memo) {
 		this.memo = memo;
+	}
+
+	public Integer getWeight() {
+		return weight;
+	}
+
+	public void setWeight(Integer weight) {
+		this.weight = weight;
 	}
 }

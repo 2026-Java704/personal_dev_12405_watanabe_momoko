@@ -28,6 +28,10 @@ public class Events {
 
 	}
 
+	public Events(String name) {
+		this.name = name;
+	}
+
 	//ゲッター
 	public Integer getId() {
 		return id;

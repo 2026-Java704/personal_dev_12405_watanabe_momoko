@@ -8,6 +8,28 @@
 	<header>Let's 腹筋！</header>
 	<form action="/login" method="post">
 	こんにちは[[${@account.name}]]さん
+	
+	<table border="1">
+		<tr>
+			<th>日付</th>
+			<th>種目</th>
+			<th>時間</th>
+			<th>体重</th>
+		</tr>
+		<tr>
+			<td>
+				<input type="date" name="date">
+			</td>
+			<td th:text="${events.name}"></td>
+			<td>
+				<input type="number" name="time">分
+			</td>
+			<td>
+				<input type="number" name="weight">kg
+			</td>
+		</tr>
+	</table>
+	<button type="submit">ENTER！</button>
 	</form>
 	<br><a href="/logout">ログアウト</a>
 </body>
