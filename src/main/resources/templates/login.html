@@ -6,7 +6,10 @@
 </head>
 <body>
 	<header>Let's 腹筋！</header>
-	<h1>ログイン</h1>
+	<h1>ログイン</h1><br>
+	
+	<form action="/login" method="post">
+		<span th:text="${message}"></span>
 	<table>
 		<tr>
 			<th>名前</th>
@@ -17,7 +20,8 @@
 			<td><input type="password" name="password"></td>
 		</tr>
 	</table>
-	<button>ログイン</button><br>
+	<button type="submit" >ログイン</button><br>
+	</form>
 	<a href="/users/new">新規登録</a>
 </body>
 </html>

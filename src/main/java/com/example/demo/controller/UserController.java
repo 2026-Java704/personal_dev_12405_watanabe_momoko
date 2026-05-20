@@ -1,5 +1,9 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
+import jakarta.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,17 +11,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entiry.User;
+import com.example.demo.model.Account;
 import com.example.demo.repository.UserRepository;
 
 @Controller
 public class UserController {
 
 	private final UserRepository userRepository;
+	private final HttpSession session;
+	private final Account account;
 
 	public UserController(
-			UserRepository userRepository) {
+			UserRepository userRepository,
+			HttpSession session,
+			Account account) {
 
 		this.userRepository = userRepository;
+		this.session = session;
+		this.account = account;
 	}
 
 	@GetMapping("users/new")
@@ -42,10 +53,12 @@ public class UserController {
 
 	}
 
-	@GetMapping({ "/", "/login" })
+	@GetMapping({ "/", "/login", "/logout" })
 
 	//ログイン画面
 	public String index() {
+
+		session.invalidate();
 		return "login";
 	}
 
@@ -57,12 +70,21 @@ public class UserController {
 			@RequestParam String password,
 			Model model) {
 
-		if (name == null && password == null) {
-			model.addAttribute("message", "名前とパスワードを入力してください");
-
+		if (name.length() == 0 || password.length() == 0) {
+			model.addAttribute("message", "入力してください");
 			return "login";
 		}
 
-		return "";
+		List<User> userList = userRepository.findByNameAndPassword(name, password);
+
+		if (userList.size() == 0) {
+			model.addAttribute("message", "名前とパスワードが一致しません");
+			return "login";
+		}
+
+		account.setName(name);
+
+		return "records";
 	}
+
 }
