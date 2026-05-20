@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Let's 腹筋！</title>
+</head>
+<body>
+	<header>Let's 腹筋！</header>
+	<form action="/login" method="post">
+	こんにちは[[${@account.name}]]さん
+	</form>
+	<br><a href="/logout">ログアウト</a>
+</body>
+</html>
