@@ -1,6 +1,5 @@
-package com.example.demo.entiry;
+package com.example.demo.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,60 +9,53 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "events")
 public class Events {
-
-	//主キー
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(name = "user_id")
 	private Integer userId;
 
 	private String name;
 
-	private Integer mets;
+	private Double mets;
 
-	//	コンストラクタ
 	public Events() {
-
 	}
 
-	public Events(String name) {
+	public Events(String name, Double mets) {
 		this.name = name;
+		this.mets = mets;
 	}
 
-	//ゲッター
 	public Integer getId() {
 		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Integer getUserId() {
 		return userId;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public Integer getMets() {
-		return mets;
-	}
-
-	//セッター
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
 	public void setUserId(Integer userId) {
 		this.userId = userId;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public void setMets(Integer mets) {
-		this.mets = mets;
+	public Double getMets() {
+		return mets;
 	}
 
+	public void setMets(Double mets) {
+		this.mets = mets;
+	}
 }

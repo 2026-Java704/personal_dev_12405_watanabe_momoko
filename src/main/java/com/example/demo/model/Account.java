@@ -6,7 +6,7 @@ import org.springframework.web.context.annotation.SessionScope;
 @Component
 @SessionScope
 public class Account {
-
+	private Integer id;
 	private String name;
 
 	public String getName() {
@@ -15,5 +15,13 @@ public class Account {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 }

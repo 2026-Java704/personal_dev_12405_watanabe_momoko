@@ -5,23 +5,18 @@
 <title>ログイン</title>
 </head>
 <body>
-	<header>Let's 腹筋！8パック目指して・・・・肉大好き!</header>
-	<h1>ログイン</h1><br>
-	
-	<form action="/login" method="post">
-		<span th:text="${message}"></span>
-	<table>
-		<tr>
-			<th>名前</th>
-			<td><input type="text" name="name" th:value="${name}"></td>
-		</tr>
-		<tr>
-			<th>パスワード</th>
-			<td><input type="password" name="password"></td>
-		</tr>
-	</table>
-	<button type="submit" >ログイン</button><br>
-	</form>
-	<a href="/users/new">新規登録</a>
+	<header>
+		<h1>Let's 腹筋！</h1>
+	</header>
+	<hr>
+	<main>
+		<form action="/login" method="post">
+			<input type="text" name="name" placeholder="名前" th:value="${name}"><br>
+			<input type="text" name="password" placeholder="パスワード"><br>
+			<button>ログイン</button>
+			<br> <span th:text="${message}" style="color: red"></span>
+		</form>
+		<a href ="/users/new">新規登録</a>
+	</main>
 </body>
 </html>
