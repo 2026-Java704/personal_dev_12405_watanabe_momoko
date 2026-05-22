@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>過去の記録</title>
+	<meta charset="UTF-8">
+	<title>過去の記録</title>
 </head>
+
 <body>
-	<header>
-		<h1>Let's 腹筋！</h1>
-	</header>
+	<header></header>
 
 	<main>
 		<hr>
@@ -19,6 +19,7 @@
 				<th>時間</th>
 				<th>体重</th>
 				<th>消費カロリー</th>
+				<th>更新</th>
 				<th>削除</th>
 			</tr>
 			<tr th:each="record : ${records}">
@@ -30,19 +31,24 @@
 				</td>
 				<td th:text="${record.time + ' 分'}"></td>
 				<td th:text="${record.weight + ' kg'}"></td>
-				<td th:text="${'約 ' + record.burnCalorie + ' カロリー'}"></td>
-				
+				<td th:text="${'約 ' + record.burnCalorie + 'kcal '}"></td>
 				<td>
-<!--					<form th:action="" method="post">-->
-					<button>削除</button>
+					<form th:action="@{/past/{pastId}/edit(pastId=${record.id})}" method="get">
+						<button>更新</button>
+					</form>
+				</td>
+				<td>
+					<form th:action="@{/past/{id}/delete(id=${record.id})}" method="post">
+						<button>削除</button>
 					</form>
 				</td>
 			</tr>
-		</table>
+		</table><br>
+		
 		<p><a href="/records/add">入力画面へ戻る</a></p>
-		<form action="/logout" method="post">
-			<button type="submit">ログアウト</button>
-		</form>
+
+		
 	</main>
 </body>
+
 </html>

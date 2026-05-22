@@ -93,8 +93,48 @@ public class TaskController {
 		return "past";
 	}
 
-	@PostMapping("/past/{id}/delete")
+	@GetMapping("/past/{id}/edit")
+	public String edit(@PathVariable Integer id, Model model) {
+		if (account.getId() == null) {
+			return "redirect:/login";
+		}
 
+		List<Events> events = eventsRepository.findByUserIdOrderByIdAsc(account.getId());
+
+		model.addAttribute("events", events);
+
+		Exercise_records exercise_records = exerciseRecordsRepository.findById(id).get();
+		model.addAttribute("exercise_records", exercise_records);
+		return "editPast";
+	}
+
+	@PostMapping("/past/{id}/edit")
+	public String update(
+			@PathVariable Integer id,
+			@RequestParam(defaultValue = "") Integer eventId,
+			@RequestParam(defaultValue = "") LocalDate date,
+			@RequestParam(defaultValue = "") Integer time,
+			@RequestParam(defaultValue = "") Double weight) { // burnCalorieの引数を削除
+
+		Exercise_records exercise_records = exerciseRecordsRepository.findById(id).get();
+
+		Events event = eventsRepository.findById(eventId).get();
+
+		double burnCalorie = event.getMets() * weight * (time / 60.0) * 1.05;
+
+		double roundedCalorie = Math.round(burnCalorie * 10.0) / 10.0;
+
+		exercise_records.setEventId(eventId);
+		exercise_records.setDate(date);
+		exercise_records.setTime(time);
+		exercise_records.setWeight(weight);
+		exercise_records.setBurnCalorie(roundedCalorie);
+
+		exerciseRecordsRepository.save(exercise_records);
+		return "redirect:/past";
+	}
+
+	@PostMapping("/past/{id}/delete")
 	public String delete(
 			@PathVariable Integer id) {
 

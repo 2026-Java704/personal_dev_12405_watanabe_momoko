@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
+<link rel="style
+sheet" href="css/style.css">
 </head>
 <body>
 	<header>
@@ -12,7 +14,7 @@
 	<main>
 		<form action="/login" method="post">
 			<input type="text" name="name" placeholder="名前" th:value="${name}"><br>
-			<input type="text" name="password" placeholder="パスワード"><br>
+			<input type="password" name="password" placeholder="パスワード"><br>
 			<button>ログイン</button>
 			<br> <span th:text="${message}" style="color: red"></span>
 		</form>
