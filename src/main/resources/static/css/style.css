@@ -1,0 +1,137 @@
+
+body{
+	background-color: #000022;
+	text-align: center;
+}
+
+hr{
+color: whitesmoke;
+}
+
+h1{
+	
+	float: none;
+	background: linear-gradient(45deg, #757575 0%, #9E9E9E 45%, #E8E8E8 70%, #9E9E9E 85%, #757575 90% 100%);
+	background-color: rgb(255, 255, 255);
+	color: black;
+	text-align: center;
+	font-style:italic ;
+	border-radius: 20px;
+	height: 100px;
+	line-height: 100px; /* heightと同じ値を指定 */
+	margin: 0;
+	 
+	
+}
+
+h3{
+	color: antiquewhite;
+}
+
+.p{
+	color: antiquewhite;
+}
+.btn1{
+	background-color:#696969;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+	color: #fff;
+	display: inline-block;
+	font-weight: 700;
+	border-radius: 50px;
+	text-decoration: none;
+	transition: .3s;
+}
+
+.btn1:hover{
+	background-color: palevioletred;
+}
+
+.logout{
+	background-color:palevioletred;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+	color: #fff;
+	display: inline-block;
+	font-weight: 700;
+	border-radius: 50px;
+	text-decoration: none;
+	transition: .3s;
+	margin-top: 10%;
+	
+}
+
+.logout:hover{
+	background-color: #696969;
+}
+
+.enter{
+	background-color:palevioletred;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+	color: #fff;
+	display: inline-block;
+	font-weight: 700;
+	border-radius: 50px;
+	text-decoration: none;
+	transition: .3s;
+	margin-top: 10%;
+	
+}
+
+.enter:hover{
+	background-color: #696969;
+}
+
+button{
+	margin: 2px;
+	padding: 5px 20px;
+	width: 150px;
+	height: 50px;
+	
+}
+
+table{
+	color: whitesmoke;
+	margin: auto;
+}
+
+.totaltable{
+	width: 200px;
+	
+	
+}recordstabale{
+	width: 200px;
+	height: 200px;
+}
+
+.edittable{
+	margin: auto;
+	text-align:center;
+}
+
+.loginbox{
+	margin: auto;
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
+
+th{
+	background-color:white;
+	text-align: center;
+}
+
+td{
+	width: 200px;
+	height: 50px;
+}
+
+.kcal{
+	text-align: right;
+}
+
+recordtd{
+	text-align: center;
+}
+
+.text{
+	width: 300px;
+	height: 50px;
+}

@@ -4,15 +4,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>過去の記録</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+
 </head>
 
 <body>
-	<header></header>
+	<header>
+		
+		<h1>Let's 腹筋！</h1>
+		
+	</header>
 
 	<main>
 		<hr>
 		<h3><span th:text="${@account.name} + ' さん、こんにちは'"></span></h3>
-		<table border="1">
+		<table border="1" class="pasttable">
 			<tr>
 				<th>日付</th>
 				<th>種目</th>
@@ -44,11 +50,20 @@
 				</td>
 			</tr>
 		</table><br>
+		<table border="1" class="totaltable">
+			<tr>
+				<th>合計消費カロリー</th>
+			</tr>
+			<tr>
+				<td><span th:text="${#aggregates.sum(records.![burnCalorie]) + 'kcal'}"></span></td>
+			</tr>
+		</table>
 		
-		<p><a href="/records/add">入力画面へ戻る</a></p>
+		<a href="/records/add" class="backrecords">入力画面へ戻る</a>
 
-		
 	</main>
+	
+	<hr>
 </body>
 
 </html>

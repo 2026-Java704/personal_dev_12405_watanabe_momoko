@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>記録入力ページ</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 	<header>
@@ -12,33 +13,43 @@
 	<main>
 		<hr>
 		<h3><span th:text="${@account.name} + ' さん、こんにちは'"></span></h3>
-		<form action="/logout" method="post">
-			<button type="submit">ログアウト</button>
-		</form>
-		<form action="/records/add" method="post">
-			<table border="1">
-				<tr>
-					<th>日付</th>
-					<th>種目</th>
-					<th>時間</th>
-					<th>体重</th>
-					<th>メモ</th>
-				</tr>
-				<tr>
-					<td><input type="date" name="date" required></td>
-					<td>
-						<select name="eventId">
-							<option th:each="event : ${events}" th:value="${event.id}" th:text="${event.name}"></option>
-						</select>
-					</td>
-					<td><input type="number" name="time" min="1" required> 分</td>
-					<td><input type="number" name="weight" min="1" step="0.1" required> kg</td>
-					<td><input type="text" name="memo"></td>
-				</tr>
+		
+		<form> 
+			<table border="1" class="recordstabale">
+				<div class="recordsth">
+					<tr>
+						<th>日付</th>
+						<th>種目</th>
+						<th>時間</th>
+						<th>体重</th>
+						<th>メモ</th>
+					</tr>
+				</div>
+				<div class="recordstd">
+					<tr>
+						
+						<td><input type="date" name="date" required></td>
+						<td>
+							<select name="eventId">
+								<option th:each="event : ${events}" th:value="${event.id}" th:text="${event.name}"></option>
+							</select>
+						</td>
+						<td><input type="number" name="time" min="1" required> 分</td>
+						<td><input type="number" name="weight" min="1" step="0.1" required> kg</td>
+						<td><input type="text" name="memo"></td>
+					</tr>
+				</div>
 			</table>
-			<button>ENTER!!!</button>
+			<button class="enter">GO!!</button>
 		</form>
-		<p><a href="/past">過去の記録を見る</a></p>
+		
+		<form action="/logout" method="post">
+			<button type="submit" class="logout">ログアウト</button><br>
+		</form>
+		
+		<p><a href="/past" class="backpast">過去の記録を見る</a></p>
+
 	</main>
+	<hr>
 </body>
 </html>
