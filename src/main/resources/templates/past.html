@@ -10,9 +10,7 @@
 
 <body>
 	<header>
-		
-		<h1>Let's 腹筋！</h1>
-		
+		<span class="glitch" data-text="Let's 腹筋！">Let's 腹筋！</span>
 	</header>
 
 	<main>
@@ -25,6 +23,7 @@
 				<th>時間</th>
 				<th>体重</th>
 				<th>消費カロリー</th>
+				<th>memo</th>
 				<th>更新</th>
 				<th>削除</th>
 			</tr>
@@ -38,14 +37,15 @@
 				<td th:text="${record.time + ' 分'}"></td>
 				<td th:text="${record.weight + ' kg'}"></td>
 				<td th:text="${'約 ' + record.burnCalorie + 'kcal '}"></td>
+				<td th:text="${record.memo}"></td>
 				<td>
 					<form th:action="@{/past/{pastId}/edit(pastId=${record.id})}" method="get">
-						<button>更新</button>
+						<button class="btn3">更新</button>
 					</form>
 				</td>
 				<td>
 					<form th:action="@{/past/{id}/delete(id=${record.id})}" method="post">
-						<button>削除</button>
+						<button class="btn3">削除</button>
 					</form>
 				</td>
 			</tr>
@@ -63,7 +63,13 @@
 
 	</main>
 	
-	<hr>
+	
+	<footer>
+		<hr>
+		<p><small>&copy; by watanabe momoko</small></p>
+	</footer>
 </body>
+
+
 
 </html>

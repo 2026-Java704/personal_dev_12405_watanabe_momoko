@@ -8,32 +8,99 @@ hr{
 color: whitesmoke;
 }
 
-h1{
+header{
 	
 	float: none;
 	background: linear-gradient(45deg, #757575 0%, #9E9E9E 45%, #E8E8E8 70%, #9E9E9E 85%, #757575 90% 100%);
-	background-color: rgb(255, 255, 255);
-	color: black;
 	text-align: center;
 	font-style:italic ;
 	border-radius: 20px;
 	height: 100px;
 	line-height: 100px; /* heightと同じ値を指定 */
 	margin: 0;
-	 
 	
 }
 
-h3{
-	color: antiquewhite;
+footer{
+	color: whitesmoke;
+	width: 100%;
+	padding-top: 5px; /* 内側余白(上) */
+	padding-bottom: 5px; /* 内側余白(下) */
+
+	
+}
+.glitch {
+  font-size: 48px;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  position: relative;
+  display: inline-block;
 }
 
-.p{
-	color: antiquewhite;
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
+
+.glitch::before {
+  color: rgb(64, 0, 128);
+  animation: glitchTop 0.5s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+
+.glitch::after {
+  color: rgb(0, 0, 0);
+  animation: glitchBottom 0.7s infinite;
+  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchTop {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+}
+
+@keyframes glitchBottom {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(5px); }
+  40% { transform: translateX(-5px); }
+  60% { transform: translateX(3px); }
+  80% { transform: translateX(-3px); }
+}
+
+h3{
+	color:whitesmoke;
+}
+
+
+.p{
+	font-size: 20px;
+	font-weight: 700;
+	background: linear-gradient(90deg, red, orange, yellow, green, blue, purple);
+	background-size: 600%; /* グラデーションを広くして動きを滑らかに */
+	color: wheat;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: p 6s linear infinite; /* 時間を長めにして滑らかに */
+}
+
+@keyframes p {
+  0% { background-position: 0% 0; }
+  50% { background-position: 100% 0; } /* 中間で一度移動 */
+  100% { background-position: 0% 0; }  /* 元に戻す */
+}
+
+
 .btn1{
 	background-color:#696969;
-	box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+	box-shadow: 0 1px 4px rgb(255, 255, 255);
 	color: #fff;
 	display: inline-block;
 	font-weight: 700;
@@ -46,16 +113,41 @@ h3{
 	background-color: palevioletred;
 }
 
-.logout{
+.btn3{
+	margin: auto;
+	background-color: #000022;
+	color: #E8E8E8;
+}
+
+.editbtn{
+/*	margin: auto;*/
+/*	margin-bottom: 30%;*/
 	background-color:palevioletred;
-	box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+	box-shadow: 0 1px 4px rgb(255, 255, 255);
 	color: #fff;
 	display: inline-block;
 	font-weight: 700;
 	border-radius: 50px;
 	text-decoration: none;
 	transition: .3s;
-	margin-top: 10%;
+/*	margin-top: 3%;*/
+}
+
+.editbtn:hover{
+	background-color: rgb(233, 193, 5);
+}
+
+
+.logout{
+	background-color:palevioletred;
+	box-shadow: 0 1px 4px rgb(255, 255, 255);
+	color: #fff;
+	display: inline-block;
+	font-weight: 700;
+	border-radius: 50px;
+	text-decoration: none;
+	transition: .3s;
+	margin-top: 3%;
 	
 }
 
@@ -65,19 +157,19 @@ h3{
 
 .enter{
 	background-color:palevioletred;
-	box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+	box-shadow: 0 1px 4px rgb(255, 255, 255);
 	color: #fff;
 	display: inline-block;
 	font-weight: 700;
 	border-radius: 50px;
 	text-decoration: none;
 	transition: .3s;
-	margin-top: 10%;
+	margin-top: 3%;
 	
 }
 
 .enter:hover{
-	background-color: #696969;
+	background-color: darkred;
 }
 
 button{
@@ -85,7 +177,12 @@ button{
 	padding: 5px 20px;
 	width: 150px;
 	height: 50px;
-	
+	transition: transform 0.5s;
+	display: block;
+}
+
+button:hover{
+	transform: scale(1.1);
 }
 
 table{
@@ -96,8 +193,9 @@ table{
 .totaltable{
 	width: 200px;
 	
-	
-}recordstabale{
+}
+
+recordstabale{
 	width: 200px;
 	height: 200px;
 }
@@ -105,6 +203,7 @@ table{
 .edittable{
 	margin: auto;
 	text-align:center;
+	padding: 3%;
 }
 
 .loginbox{
@@ -112,13 +211,14 @@ table{
 	padding-top: 5%;
 	padding-bottom: 5%;
 }
-
 th{
 	background-color:white;
 	text-align: center;
+	color: #696969;
 }
 
 td{
+	background-color: #000025;
 	width: 200px;
 	height: 50px;
 }

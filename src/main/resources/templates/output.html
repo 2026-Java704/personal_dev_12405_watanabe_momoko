@@ -8,24 +8,29 @@
 </head>
 <body>
 	<header>
-		<h1>Let's 腹筋！</h1>
+		<span class="glitch" data-text="Let's 腹筋！">Let's 腹筋！</span>
 	</header>
 
 	<main>
 		<hr>
 		<h3><span th:text="${@account.name} + ' さん、こんにちは'"></span></h3>
+		
+		<h3 class="resault">結果発表！！！</h3>
+		
 		<table border="1">
 			<tr>
 				<th>日付</th>
 				<th>種目</th>
 				<th>時間</th>
 				<th>体重</th>
+				<th>memo</th>
 			</tr>
 			<tr>
 				<td th:text="${record.date}"></td>
 				<td th:text="${eventName}"></td>
 				<td th:text="${record.time + ' 分'}"></td>
 				<td th:text="${record.weight + ' kg'}"></td>
+				<td th:text="${record.memo}"></td>
 			</tr>
 		</table>
 		<p th:text="${@account.name} + 'さんの消費カロリーは、約' + ${record.burnCalorie} + 'カロリーです！'" class="p"></p>
@@ -36,4 +41,10 @@
 		</form>
 	</main>
 </body>
+
+<footer>
+	<hr>
+	<p><small>&copy; by watanabe momoko</small></p>
+</footer>
+
 </html>

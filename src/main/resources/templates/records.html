@@ -7,14 +7,14 @@
 </head>
 <body>
 	<header>
-		<h1>Let's 腹筋！</h1>
+		<span class="glitch" data-text="Let's 腹筋！">Let's 腹筋！</span>
 	</header>
 
 	<main>
 		<hr>
 		<h3><span th:text="${@account.name} + ' さん、こんにちは'"></span></h3>
 		
-		<form> 
+		<form action="/records/add" method="post"> 
 			<table border="1" class="recordstabale">
 				<div class="recordsth">
 					<tr>
@@ -50,6 +50,12 @@
 		<p><a href="/past" class="backpast">過去の記録を見る</a></p>
 
 	</main>
-	<hr>
+	
 </body>
+
+<footer>
+	<hr>
+	<p><small>&copy; by watanabe momoko</small></p>
+</footer>
+
 </html>

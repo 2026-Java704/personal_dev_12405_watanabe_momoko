@@ -10,11 +10,13 @@
 <body>
 	
 	<header>
-			<h1>Let's 腹筋！</h1>
+			<span class="glitch" data-text="Let's 腹筋！">Let's 腹筋！</span>
 	</header>
 	
 	<main>
 		<form th:action="@{/past/{pastId}/edit(pastId=${exercise_records.id})}" method="post">
+			
+			<div class="edittable">
 			<table border="1" class="edit">
 				<tr>
 					<th>日付</th>
@@ -44,12 +46,22 @@
 					<th>消費カロリー</th>
 					<td input type="text" th:value="${exercise_records.burnCalorie}" readonly class="kcal"> kcal</td>
 				</tr>
+				
+				<tr>
+					<th>memo</th>
+					<td input type="text" th:value="${exercise_records.memo}"></td>
+				</tr>
 			</table>
-			
-			<button type="submit">更新</button>
+			</div>
+			<button type="submit" class="editbtn">更新</button>
 		</form>
 	</main>
-	<hr>
+	<footer>
+		<hr>
+		<p><small>&copy; by watanabe momoko</small></p>
+	</footer>
+
 </body>
-<footer>a</footer>
+
+
 </html>
